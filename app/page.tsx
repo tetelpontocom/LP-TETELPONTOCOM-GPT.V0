@@ -75,16 +75,16 @@ export default function TetelPontocomV234() {
       {/* HEADER */}
       <header className="sticky top-0 z-40 backdrop-blur bg-[#FFF6EF]/80 border-b border-[#EEDFD2] py-2.5">
         <div className="mx-auto max-w-6xl px-4 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-2">
+          <a href="#top" className="flex items-center gap-2.5">
             <Image
-              src="/images/logo-tetelpontocom.png"
-              alt="Logo TetelPontocom"
-              width={30}
-              height={30}
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Log_Tetelpontocom-WJM7NaR114OeytpOReCJqSa3ZqKd1G.png"
+              alt="Logo Tetel Pontocom"
+              width={40}
+              height={40}
               priority
               className="rounded-md shadow-sm ring-1 ring-[#EEDFD2]/60"
             />
-            <span className="font-medium tracking-tight text-[15px] text-[#1F1A17]">TetelPontocom</span>
+            <span className="font-semibold tracking-tight text-base text-[#1F1A17]">Tetel Pontocom</span>
           </a>
           <nav className="hidden md:flex items-center gap-6 text-sm">
             <a href="#inicio" className="hover:opacity-80">
@@ -142,11 +142,11 @@ export default function TetelPontocomV234() {
 
         <div className="relative w-full mt-12 md:mt-16 max-w-4xl">
           <Image
-            src="/images/hero-tetelpontocom-v1.png"
-            alt="Hero TetelPontocom"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hero-tetelpontocom-v1-LxHYkMwMxkpOfryzpg7hKT7rM9ypCG.png"
+            alt="Hero TetelPontocom - Confiança e propósito também cabem nas suas escolhas"
             width={1200}
             height={800}
-            className="w-full h-auto rounded-2xl object-cover"
+            className="w-full h-auto rounded-2xl object-cover shadow-lg"
             priority
           />
         </div>

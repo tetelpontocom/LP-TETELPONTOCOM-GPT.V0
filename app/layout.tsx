@@ -18,7 +18,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TetelPontocom — Curadoria com Propósito",
     description: "Parte do Ecossistema Tetel. Indicações que fazem sentido — confiança e utilidade nas suas escolhas.",
-    images: ["/images/hero-tetelpontocom-v1.png"],
+    images: [
+      {
+        url: "/images/og-tetel-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "TetelPontocom - Curadoria com Propósito",
+      },
+    ],
   },
   themeColor: "#FFF6EF",
 }
