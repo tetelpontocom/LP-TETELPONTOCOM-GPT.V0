@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "A TetelPontocom é curadoria afetiva e digital. Conecte-se a produtos, serviços e parceiros com propósito, confiança e utilidade real.",
   generator: "v0.app",
   icons: {
-    icon: "/images/fivecom-logo.png",
+    icon: "/favicon.ico",
   },
   openGraph: {
     title: "TetelPontocom — Curadoria com Propósito",

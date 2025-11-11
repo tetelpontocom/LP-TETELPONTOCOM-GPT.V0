@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { ArrowRight, Gift, HandHeart, ShieldCheck, Sparkles, Users, Wrench, MessageCircle } from "lucide-react"
 import { useMetaPixel } from "@/hooks/use-meta-pixel"
 
 export default function TetelPontocomV252() {
@@ -83,16 +82,15 @@ export default function TetelPontocomV252() {
           </p>
           <div className="flex flex-wrap gap-4 mt-8">
             <a
-              href="https://facacaixaagora.tetel.online?utm_source=tetel.com&utm_medium=hero"
+              href="https://facacaixaagora.tetel.online/?origem=tetelpontocom"
               className="bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full hover:opacity-90 transition"
-              onClick={() => track("Lead", { origem: "Hero - Faça Caixa Agora" })}
+              onClick={() => track("Lead")}
             >
               Faça Caixa Agora
             </a>
             <a
-              href="https://minhaia.tetel.online?utm_source=tetel.com&utm_medium=hero"
+              href="https://minhaia.tetel.online/?origem=tetelpontocom"
               className="bg-black text-white font-semibold px-6 py-3 rounded-full hover:opacity-80 transition"
-              onClick={() => track("Lead", { origem: "Hero - Minha IA Premium" })}
             >
               Minha IA Premium
             </a>
@@ -121,25 +119,25 @@ export default function TetelPontocomV252() {
           {[
             {
               title: "Faça Caixa Agora",
-              description: "Guia prático para gerar renda e acelerar resultados — ideal para começar com propósito.",
-              link: "https://facacaixaagora.tetel.online?utm_source=tetel.com&utm_medium=solucoes",
+              description: "O guia prático para gerar renda e acelerar resultados — ideal para começar.",
+              link: "https://facacaixaagora.tetel.online/?origem=tetelpontocom",
             },
             {
               title: "Minha IA Premium",
               description:
                 "Crie agentes inteligentes que trabalham por você — organize, acompanhe e venda com automação.",
-              link: "https://minhaia.tetel.online?utm_source=tetel.com&utm_medium=solucoes",
+              link: "https://minhaia.tetel.online/?origem=tetelpontocom",
             },
             {
               title: "Pacote Starter Tetel",
               description: "Combina o Faça Caixa Agora e a Minha IA em uma oferta especial de pós-compra.",
-              link: "https://starter.tetel.online?utm_source=tetel.com&utm_medium=solucoes",
+              link: "https://starter.tetel.online/?origem=tetelpontocom",
             },
           ].map((item) => (
             <a
               key={item.title}
               href={item.link}
-              onClick={() => track("Lead", { origem: item.title })}
+              onClick={() => track("Lead")}
               className="block rounded-2xl border border-black/10 bg-white p-6 hover:shadow-md transition"
             >
               <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -202,17 +200,17 @@ export default function TetelPontocomV252() {
           {[
             {
               title: "Acesso antecipado às indicações",
-              icon: <Sparkles className="h-5 w-5" />,
+              icon: <span className="h-5 w-5">Sparkles</span>, // Placeholder for icon
               text: "Fique por dentro do que realmente vale a pena.",
             },
             {
               title: "Cupons e ofertas selecionadas",
-              icon: <Gift className="h-5 w-5" />,
+              icon: <span className="h-5 w-5">Gift</span>, // Placeholder for icon
               text: "Benefícios reais, com utilidade no dia a dia.",
             },
             {
               title: "Indicações com propósito",
-              icon: <HandHeart className="h-5 w-5" />,
+              icon: <span className="h-5 w-5">HandHeart</span>, // Placeholder for icon
               text: "Cada recomendação tem um motivo e um cuidado.",
             },
           ].map((b) => (
@@ -237,17 +235,17 @@ export default function TetelPontocomV252() {
             {
               nome: "Faça Caixa Agora",
               preco: "R$ 9,90",
-              href: "https://facacaixaagora.tetel.online?utm_source=tetel.com&utm_medium=ecossistema",
+              href: "https://facacaixaagora.tetel.online/?origem=tetelpontocom",
             },
             {
               nome: "Minha IA Premium",
               preco: "R$ 27,00",
-              href: "https://minhaiapremium.tetel.online?utm_source=tetel.com&utm_medium=ecossistema",
+              href: "https://minhaiapremium.tetel.online/?origem=tetelpontocom",
             },
             {
               nome: "Pacote Starter Tetel",
               preco: "R$ 39,90",
-              href: "https://starter.tetel.online?utm_source=tetel.com&utm_medium=ecossistema",
+              href: "https://starter.tetel.online/?origem=tetelpontocom",
             },
           ].map((p) => (
             <div
@@ -263,7 +261,7 @@ export default function TetelPontocomV252() {
                 onClick={() => track("Lead", { origem: `Produtos do Ecossistema - ${p.nome}` })}
                 className="mt-4 inline-flex items-center justify-center gap-2 rounded-2xl bg-black text-white px-4 py-2 text-sm hover:opacity-90 transition"
               >
-                Quero saber mais <ArrowRight className="h-4 w-4" />
+                Quero saber mais <span className="h-4 w-4">ArrowRight</span> {/* Placeholder for icon */}
               </a>
             </div>
           ))}
@@ -343,7 +341,7 @@ export default function TetelPontocomV252() {
                 className="rounded-2xl border border-black/10 bg-white p-6 hover:shadow-md transition"
               >
                 <div className="h-10 w-10 rounded-xl bg-[#FFE7D6] grid place-items-center mb-3">
-                  <Sparkles className="h-5 w-5" />
+                  <span className="h-5 w-5">Sparkles</span> {/* Placeholder for icon */}
                 </div>
                 <h3 className="font-semibold">{agente.nome}</h3>
                 <p className="mt-1 text-sm text-black/60">{agente.desc}</p>
@@ -354,7 +352,7 @@ export default function TetelPontocomV252() {
                   }}
                   className="mt-4 inline-flex items-center gap-2 rounded-xl bg-black text-white px-4 py-2 text-sm hover:opacity-90 transition"
                 >
-                  Quero saber mais <ArrowRight className="h-4 w-4" />
+                  Quero saber mais <span className="h-4 w-4">ArrowRight</span> {/* Placeholder for icon */}
                 </button>
               </div>
             ))}
@@ -378,7 +376,7 @@ export default function TetelPontocomV252() {
               }}
               className="inline-flex items-center gap-2 rounded-2xl bg-black text-white px-5 py-3 text-sm shadow-sm hover:opacity-90 transition"
             >
-              Solicitar proposta <Wrench className="h-4 w-4" />
+              Solicitar proposta <span className="h-4 w-4">Wrench</span> {/* Placeholder for icon */}
             </button>
           </div>
           <div className="rounded-3xl bg-white border border-black/10 p-8 text-center">
@@ -400,7 +398,7 @@ export default function TetelPontocomV252() {
             {["Maceió", "Rio Largo", "Santa Luzia do Norte"].map((cidade) => (
               <div key={cidade} className="rounded-2xl border border-black/10 bg-white p-6 hover:shadow-md transition">
                 <div className="h-10 w-10 rounded-xl bg-[#FFE7D6] grid place-items-center mb-3">
-                  <Users className="h-5 w-5" />
+                  <span className="h-5 w-5">Users</span> {/* Placeholder for icon */}
                 </div>
                 <h3 className="font-semibold">{cidade}</h3>
                 <p className="mt-1 text-sm text-black/60">Empresas e profissionais parceiros nesta região.</p>
@@ -411,7 +409,7 @@ export default function TetelPontocomV252() {
                   }}
                   className="mt-4 inline-flex items-center gap-2 rounded-xl bg-black text-white px-4 py-2 text-sm hover:opacity-90 transition"
                 >
-                  Quero conhecer <ArrowRight className="h-4 w-4" />
+                  Quero conhecer <span className="h-4 w-4">ArrowRight</span> {/* Placeholder for icon */}
                 </button>
               </div>
             ))}
@@ -433,13 +431,16 @@ export default function TetelPontocomV252() {
           <div className="rounded-2xl bg-white border border-black/10 p-6">
             <ul className="space-y-3 text-sm text-black/60">
               <li className="flex items-start gap-3">
-                <ShieldCheck className="h-4 w-4 mt-0.5" /> Transparência em cada recomendação.
+                <span className="h-4 w-4 mt-0.5">ShieldCheck</span> {/* Placeholder for icon */} Transparência em cada
+                recomendação.
               </li>
               <li className="flex items-start gap-3">
-                <HandHeart className="h-4 w-4 mt-0.5" /> Cuidado humano e utilidade real.
+                <span className="h-4 w-4 mt-0.5">HandHeart</span> {/* Placeholder for icon */} Cuidado humano e
+                utilidade real.
               </li>
               <li className="flex items-start gap-3">
-                <Sparkles className="h-4 w-4 mt-0.5" /> Descoberta guiada, sem pressão de compra.
+                <span className="h-4 w-4 mt-0.5">Sparkles</span> {/* Placeholder for icon */} Descoberta guiada, sem
+                pressão de compra.
               </li>
             </ul>
           </div>
@@ -460,7 +461,7 @@ export default function TetelPontocomV252() {
             }}
             className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-2xl text-base font-medium shadow-sm hover:opacity-90 transition"
           >
-            <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
+            <span className="h-5 w-5">MessageCircle</span> {/* Placeholder for icon */} Falar no WhatsApp
           </button>
         </div>
       </section>
@@ -474,7 +475,7 @@ export default function TetelPontocomV252() {
         className="fixed bottom-5 right-5 z-50 bg-[#25D366]/90 hover:bg-[#25D366] text-white p-3 rounded-full shadow-lg transition"
         aria-label="Falar no WhatsApp"
       >
-        <MessageCircle className="h-6 w-6" />
+        <span className="h-6 w-6">MessageCircle</span> {/* Placeholder for icon */}
       </button>
 
       {/* FOOTER */}
