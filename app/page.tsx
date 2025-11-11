@@ -1,30 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Image from "next/image"
-import {
-  ArrowRight,
-  ExternalLink,
-  Gift,
-  HandHeart,
-  ShieldCheck,
-  Sparkles,
-  Users,
-  Wrench,
-  TrendingUp,
-  MessageCircle,
-} from "lucide-react"
-import FormWhatsAppInteligente from "@/components/form-whats-app-inteligente"
+import { ArrowRight, Gift, HandHeart, ShieldCheck, Sparkles, Users, Wrench, MessageCircle } from "lucide-react"
+import { useMetaPixel } from "@/hooks/use-meta-pixel"
 
-/**
- * LP TetelPontocom v2.3.4 (COMPLETA)
- * - Hero em camadas (mobile first) com headline real + CTA + imagem
- * - Todas as seções reinstaladas: Curadoria, Benefícios, Ecossistema, Negócios, Agentes, Desenvolvimento, Parceiros, Sobre, Contato
- * - Pixel Meta, SEO, WhatsApp flutuante e responsividade polida
- * - Formulário WhatsApp inteligente integrado
- */
+export default function TetelPontocomV252() {
+  const { track } = useMetaPixel()
 
-export default function TetelPontocomV234() {
   const [formOpen, setFormOpen] = useState(false)
   const [formOrigem, setFormOrigem] = useState("")
   const [formWhatsApp] = useState("5582999176900")
@@ -34,57 +17,21 @@ export default function TetelPontocomV234() {
     setFormOpen(true)
   }
 
-  // Pixel
-  useEffect(() => {
-    if (!(window as any).fbq) {
-      !((f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) => {
-        if (f.fbq) return
-        n = f.fbq = () => {
-          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-        }
-        if (!f._fbq) f._fbq = n
-        n.push = n
-        n.loaded = !0
-        n.version = "2.0"
-        n.queue = []
-        t = b.createElement(e)
-        t.async = !0
-        t.src = v
-        s = b.getElementsByTagName(e)[0]
-        s.parentNode.insertBefore(t, s)
-      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js")
-      ;(window as any).fbq("init", "1305167264321996")
-      ;(window as any).fbq("track", "PageView")
-    } else {
-      ;(window as any).fbq("track", "PageView")
-    }
-  }, [])
-
-  const lead = (label: string) => (window as any).fbq?.("track", "Lead", { label })
-  const view = (name: string) => (window as any).fbq?.("track", "ViewContent", { content_name: name })
-
   return (
-    <main className="min-h-screen bg-[#FFF6EF] text-[#1F1A17]">
-      <FormWhatsAppInteligente
-        open={formOpen}
-        onClose={() => setFormOpen(false)}
-        origemSecao={formOrigem}
-        whatsappDestino={formWhatsApp}
-      />
-
+    <main className="min-h-screen bg-white text-black">
       {/* HEADER */}
-      <header className="sticky top-0 z-40 backdrop-blur bg-[#FFF6EF]/80 border-b border-[#EEDFD2] py-2.5">
+      <header className="sticky top-0 z-40 backdrop-blur bg-white/80 border-b border-black/10 py-2.5">
         <div className="mx-auto max-w-6xl px-4 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-2.5">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Log_Tetelpontocom-WJM7NaR114OeytpOReCJqSa3ZqKd1G.png"
+              src="/images/logo1-tetelpontocom.png"
               alt="Logo Tetel Pontocom"
               width={40}
               height={40}
               priority
-              className="rounded-md shadow-sm ring-1 ring-[#EEDFD2]/60"
+              className="rounded-md shadow-sm ring-1 ring-black/10"
             />
-            <span className="font-semibold tracking-tight text-base text-[#1F1A17]">Tetel Pontocom</span>
+            <span className="font-semibold tracking-tight text-base text-black">Tetel Pontocom</span>
           </a>
           <nav className="hidden md:flex items-center gap-6 text-sm">
             <a href="#inicio" className="hover:opacity-80">
@@ -118,115 +65,140 @@ export default function TetelPontocomV234() {
         </div>
       </header>
 
-      {/* HERO EM CAMADAS (MOBILE FIRST) */}
-      <section
-        id="inicio"
-        className="w-full bg-[#FFF6EF] flex flex-col items-center justify-center text-center py-16 md:py-24 px-6"
-      >
-        <div className="max-w-2xl mx-auto mb-8">
-          <h1 className="text-2xl md:text-4xl font-semibold leading-snug">
-            Confiança e propósito também cabem nas suas escolhas.
+      {/* HERO HARMONIZADO */}
+      <section className="mx-auto max-w-6xl px-4 py-24 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
+            Tecnologia com Humanidade,
+            <br />
+            para transformar ideias em impacto real.
           </h1>
-          <p className="mt-3 text-[#4B423C] text-sm md:text-base">
-            Descubra produtos, serviços e parceiros recomendados de verdade.
+          <p className="mt-4 text-lg text-black/70 max-w-xl">
+            A <strong>TetelPontocom</strong> é parte do{" "}
+            <a href="https://tetelonline.tetel.online" className="underline hover:opacity-80">
+              Ecossistema Tetel
+            </a>{" "}
+            — uma rede que conecta inteligência artificial, propósito e resultado. Aqui, você encontra soluções
+            práticas, humanas e prontas para crescer.
           </p>
+          <div className="flex flex-wrap gap-4 mt-8">
+            <a
+              href="https://facacaixaagora.tetel.online?utm_source=tetel.com&utm_medium=hero"
+              className="bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full hover:opacity-90 transition"
+              onClick={() => track("Lead", { origem: "Hero - Faça Caixa Agora" })}
+            >
+              Faça Caixa Agora
+            </a>
+            <a
+              href="https://minhaia.tetel.online?utm_source=tetel.com&utm_medium=hero"
+              className="bg-black text-white font-semibold px-6 py-3 rounded-full hover:opacity-80 transition"
+              onClick={() => track("Lead", { origem: "Hero - Minha IA Premium" })}
+            >
+              Minha IA Premium
+            </a>
+          </div>
+          <p className="text-sm text-black/60 mt-3">Produtos verificados • Pagamento seguro • Acesso imediato</p>
         </div>
 
-        <a
-          href="#categorias"
-          onClick={() => lead("Hero - Explorar Agora")}
-          className="inline-flex items-center gap-2 rounded-2xl bg-[#1F1A17] text-white px-6 py-3 text-sm md:text-base shadow-sm hover:opacity-90 transition"
-        >
-          Explorar agora <ArrowRight className="h-4 w-4" />
-        </a>
-
-        <div className="relative w-full mt-12 md:mt-16 max-w-4xl">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hero-tetelpontocom-v1-LxHYkMwMxkpOfryzpg7hKT7rM9ypCG.png"
-            alt="Hero TetelPontocom - Confiança e propósito também cabem nas suas escolhas"
-            width={1200}
-            height={800}
-            className="w-full h-auto rounded-2xl object-cover shadow-lg"
-            priority
+        {/* Lado direito — imagem institucional */}
+        <div className="rounded-3xl overflow-hidden shadow-lg">
+          <img
+            src="/images/hero-tetelpontocom-v1.jpg"
+            alt="Confiança e propósito também cabem nas suas escolhas"
+            className="w-full h-auto"
           />
         </div>
       </section>
 
-      {/* CURADORIA / DESTAQUES */}
-      <section id="categorias" className="border-t border-[#EEDFD2] bg-[#FFF9F4]">
-        <div className="mx-auto max-w-6xl px-4 py-14">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl md:text-2xl font-semibold tracking-tight">Destaques</h2>
-          </div>
+      {/* Produtos Principais */}
+      <section className="mx-auto max-w-6xl px-4 py-16 bg-[#FAFAFA] rounded-3xl">
+        <h2 className="text-2xl md:text-3xl font-semibold text-center">Soluções que se conectam ao seu propósito</h2>
+        <p className="mt-2 text-center text-black/70">
+          Cada produto é um passo dentro do Ecossistema Tetel — feito para gerar resultado com humanidade.
+        </p>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid md:grid-cols-3 gap-8 mt-10">
+          {[
+            {
+              title: "Faça Caixa Agora",
+              description: "Guia prático para gerar renda e acelerar resultados — ideal para começar com propósito.",
+              link: "https://facacaixaagora.tetel.online?utm_source=tetel.com&utm_medium=solucoes",
+            },
+            {
+              title: "Minha IA Premium",
+              description:
+                "Crie agentes inteligentes que trabalham por você — organize, acompanhe e venda com automação.",
+              link: "https://minhaia.tetel.online?utm_source=tetel.com&utm_medium=solucoes",
+            },
+            {
+              title: "Pacote Starter Tetel",
+              description: "Combina o Faça Caixa Agora e a Minha IA em uma oferta especial de pós-compra.",
+              link: "https://starter.tetel.online?utm_source=tetel.com&utm_medium=solucoes",
+            },
+          ].map((item) => (
+            <a
+              key={item.title}
+              href={item.link}
+              onClick={() => track("Lead", { origem: item.title })}
+              className="block rounded-2xl border border-black/10 bg-white p-6 hover:shadow-md transition"
+            >
+              <h3 className="text-lg font-semibold">{item.title}</h3>
+              <p className="mt-2 text-sm text-black/60">{item.description}</p>
+              <button className="mt-4 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold">
+                Acessar página →
+              </button>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* CURADORIA / DESTAQUES */}
+      <section id="categorias" className="mt-24 py-10">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-6">Destaques</h2>
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Shopee */}
             <a
               href="https://shopee.com.br"
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-2xl border border-[#EEDFD2] bg-white p-5 hover:shadow-md transition"
-              onClick={() => lead("Shopee")}
+              className="group rounded-2xl border border-black/10 bg-[#FFF8F4] p-6 hover:shadow-md transition"
+              onClick={() => track("Lead", { origem: "Shopee" })}
             >
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="font-medium">Shopee</h3>
-                  <p className="mt-1 text-sm text-[#6D5F56]">Seleção útil, honesta e atualizada.</p>
-                </div>
-                <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100" />
-              </div>
-              <div className="mt-4 flex items-center gap-2 text-sm text-[#6D5F56]">
-                <Sparkles className="h-4 w-4" />
-                <span>Acesso antecipado a achados e cupons.</span>
-              </div>
+              <h3 className="text-lg font-semibold">Shopee</h3>
+              <p className="mt-2 text-sm text-black/60">
+                Seleção útil, honesta e atualizada. Acesso antecipado a achados e cupons.
+              </p>
             </a>
 
             {/* Amazon */}
             <a
-              href="https://amazon.com.br"
+              href="https://www.amazon.com.br"
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-2xl border border-[#EEDFD2] bg-white p-5 hover:shadow-md transition"
-              onClick={() => lead("Amazon")}
+              className="group rounded-2xl border border-black/10 bg-[#FFF8F4] p-6 hover:shadow-md transition"
+              onClick={() => track("Lead", { origem: "Amazon" })}
             >
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="font-medium">Amazon</h3>
-                  <p className="mt-1 text-sm text-[#6D5F56]">Curadoria com propósito, utilidade e preço justo.</p>
-                </div>
-                <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100" />
-              </div>
-              <div className="mt-4 flex items-center gap-2 text-sm text-[#6D5F56]">
-                <Gift className="h-4 w-4" />
-                <span>Ofertas selecionadas e confiáveis.</span>
-              </div>
+              <h3 className="text-lg font-semibold">Amazon</h3>
+              <p className="mt-2 text-sm text-black/60">Curadoria com propósito, utilidade e preço justo.</p>
             </a>
 
             {/* Parcerias Locais */}
             <a
               href="#parceiros"
-              className="group rounded-2xl border border-[#EEDFD2] bg-white p-5 hover:shadow-md transition"
-              onClick={() => lead("Parcerias Locais - Entrada")}
+              className="group rounded-2xl border border-black/10 bg-[#FFF8F4] p-6 hover:shadow-md transition"
+              onClick={() => track("Lead", { origem: "Parcerias Locais - Entrada" })}
             >
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="font-medium">Parcerias Locais</h3>
-                  <p className="mt-1 text-sm text-[#6D5F56]">Indicações que fortalecem nossa comunidade.</p>
-                </div>
-                <ArrowRight className="h-4 w-4 opacity-60 group-hover:opacity-100" />
-              </div>
-              <div className="mt-4 flex items-center gap-2 text-sm text-[#6D5F56]">
-                <Users className="h-4 w-4" />
-                <span>Conexões próximas e com significado.</span>
-              </div>
+              <h3 className="text-lg font-semibold">Parcerias Locais</h3>
+              <p className="mt-2 text-sm text-black/60">Indicações que fortalecem nossa comunidade.</p>
             </a>
           </div>
         </div>
       </section>
 
       {/* BENEFÍCIOS */}
-      <section id="beneficios" className="border-t border-[#EEDFD2]">
-        <div className="mx-auto max-w-6xl px-4 py-14 grid md:grid-cols-3 gap-6">
+      <section id="beneficios" className="mt-24 py-10">
+        <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-3 gap-8">
           {[
             {
               title: "Acesso antecipado às indicações",
@@ -244,190 +216,173 @@ export default function TetelPontocomV234() {
               text: "Cada recomendação tem um motivo e um cuidado.",
             },
           ].map((b) => (
-            <div key={b.title} className="rounded-2xl bg-white border border-[#EEDFD2] p-6">
+            <div key={b.title} className="rounded-2xl bg-white border border-black/10 p-6">
               <div className="h-10 w-10 rounded-xl bg-[#FFE7D6] grid place-items-center mb-3">{b.icon}</div>
               <h3 className="font-semibold">{b.title}</h3>
-              <p className="mt-1 text-sm text-[#6D5F56]">{b.text}</p>
+              <p className="mt-1 text-sm text-black/60">{b.text}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ECOSSISTEMA (Integração) */}
-      <section id="integracao" className="border-y border-[#EEDFD2] bg-[#FFF6EF]">
-        <div className="mx-auto max-w-6xl px-4 py-14">
-          <p className="text-center text-sm text-[#6D5F56] mb-6">
-            A TetelPontocom é parte de um ecossistema que acredita em crescimento com propósito.
-          </p>
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              {
-                nome: "Faça Caixa Agora",
-                preco: "R$ 9,90",
-                href: "https://facacaixaagora.tetel.online?origem=tetelpontocom",
-              },
-              {
-                nome: "Minha IA Premium",
-                preco: "R$ 27,00",
-                href: "https://minhaiapremium.tetel.online?origem=tetelpontocom",
-              },
-              {
-                nome: "Pacote Starter Tetel",
-                preco: "R$ 39,90",
-                href: "https://facacaixaagoraupsell.tetel.online?origem=tetelpontocom",
-              },
-            ].map((p) => (
-              <div key={p.nome} className="rounded-2xl border border-[#EEDFD2] bg-white p-6 flex flex-col">
-                <div className="flex-1">
-                  <h3 className="font-semibold">{p.nome}</h3>
-                  <p className="mt-1 text-sm text-[#6D5F56]">Produto do ecossistema · {p.preco}</p>
-                </div>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    ;(window as any).fbq?.("track", "ViewContent", { content_name: p.nome })
-                    ;(window as any).fbq?.("track", "Lead", { label: p.nome })
-                  }}
-                  className="mt-4 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#1F1A17] text-white px-4 py-2 text-sm hover:opacity-90 transition"
-                >
-                  Quero saber mais <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* NEGÓCIOS PRONTOS */}
-      <section id="negocios" className="border-b border-[#EEDFD2] bg-[#FFF9F4]">
-        <div className="mx-auto max-w-6xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight mb-2">Negócios Prontos para Começar</h2>
-          <p className="text-[#6D5F56] mb-10 max-w-2xl">
-            Modelos testados e prontos para você adaptar, personalizar e começar a lucrar ainda hoje — de forma simples,
-            humana e com propósito.
-          </p>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                nome: "Bolos Caseiros Lucrativos",
-                desc: "Receitas e estrutura completa para revenda e crescimento real.",
-                icon: <Gift className="h-5 w-5" />,
-              },
-              {
-                nome: "Balas de Coco Gourmet",
-                desc: "Produto artesanal de alto valor e margens reais.",
-                icon: <Sparkles className="h-5 w-5" />,
-              },
-              {
-                nome: "Geladinhos Gourmet",
-                desc: "Modelos prontos de geladinhos que vendem.",
-                icon: <TrendingUp className="h-5 w-5" />,
-              },
-              {
-                nome: "Iogurtes Caseiros Lucrativos",
-                desc: "Guia completo de produção, precificação e venda com lucro.",
-                icon: <Gift className="h-5 w-5" />,
-              },
-            ].map((n) => (
-              <div key={n.nome} className="rounded-2xl border border-[#EEDFD2] bg-white p-6 hover:shadow-md transition">
-                <div className="h-10 w-10 rounded-xl bg-[#FFE7D6] grid place-items-center mb-3">{n.icon}</div>
-                <h3 className="font-semibold">{n.nome}</h3>
-                <p className="mt-1 text-sm text-[#6D5F56]">{n.desc}</p>
-                <button
-                  onClick={() => {
-                    view(n.nome)
-                    lead(n.nome)
-                    openForm(`Negócios Prontos > ${n.nome}`)
-                  }}
-                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#1F1A17] text-white px-4 py-2 text-sm hover:opacity-90 transition"
-                >
-                  Quero saber mais <ArrowRight className="h-4 w-4" />
-                </button>
-              </div>
-            ))}
-
-            {/* Card "Novos Negócios" */}
-            <div className="rounded-2xl border border-[#EEDFD2] bg-white p-6 flex flex-col justify-between hover:shadow-md transition">
-              <div>
-                <div className="h-10 w-10 rounded-xl bg-[#FFE7D6] grid place-items-center mb-3">
-                  <Sparkles className="h-5 w-5" />
-                </div>
-                <h3 className="font-semibold">Novos Negócios em Breve</h3>
-                <p className="mt-1 text-sm text-[#6D5F56]">Cadastre-se para ser avisado dos próximos lançamentos.</p>
-              </div>
-              <button
-                onClick={() => {
-                  lead("Novos Negócios")
-                  openForm("Negócios Prontos > Novos Negócios em Breve")
-                }}
-                className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#1F1A17] text-white px-4 py-2 text-sm hover:opacity-90 transition"
-              >
-                Quero ser avisado <ArrowRight className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* AGENTES DE IA */}
-      <section id="agentes" className="mx-auto max-w-6xl px-4 py-16 border-b border-[#EEDFD2]">
-        <h2 className="text-2xl font-semibold mb-6 tracking-tight">Agentes de IA Tetel</h2>
-        <p className="text-[#6D5F56] mb-10 max-w-2xl">
-          Inteligências artificiais que ajudam empresas e empreendedores a crescer com propósito.
+      <section className="mx-auto max-w-6xl px-4 py-16 border-t border-black/10 bg-[#FFF6EF] rounded-3xl">
+        <h2 className="text-2xl md:text-3xl font-semibold text-center">Produtos do Ecossistema Tetel</h2>
+        <p className="mt-2 text-center text-black/70">
+          Soluções práticas, validadas e seguras — parte do Ecossistema Tetel.
         </p>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <div className="grid md:grid-cols-3 gap-8 mt-10">
           {[
-            { nome: "IA SDR", desc: "Captação e qualificação automática de leads." },
-            { nome: "IA Vendas", desc: "Atendimento comercial inteligente e humanizado." },
-            { nome: "IA Suporte", desc: "Acompanhamento de clientes com empatia e agilidade." },
-          ].map((agente) => (
+            {
+              nome: "Faça Caixa Agora",
+              preco: "R$ 9,90",
+              href: "https://facacaixaagora.tetel.online?utm_source=tetel.com&utm_medium=ecossistema",
+            },
+            {
+              nome: "Minha IA Premium",
+              preco: "R$ 27,00",
+              href: "https://minhaiapremium.tetel.online?utm_source=tetel.com&utm_medium=ecossistema",
+            },
+            {
+              nome: "Pacote Starter Tetel",
+              preco: "R$ 39,90",
+              href: "https://starter.tetel.online?utm_source=tetel.com&utm_medium=ecossistema",
+            },
+          ].map((p) => (
             <div
-              key={agente.nome}
-              className="rounded-2xl border border-[#EEDFD2] bg-white p-6 hover:shadow-md transition"
+              key={p.nome}
+              className="rounded-2xl border border-black/10 bg-white p-6 flex flex-col hover:shadow-md transition"
             >
-              <div className="h-10 w-10 rounded-xl bg-[#FFE7D6] grid place-items-center mb-3">
-                <Sparkles className="h-5 w-5" />
+              <div className="flex-1">
+                <h3 className="font-semibold">{p.nome}</h3>
+                <p className="mt-1 text-sm text-black/60">Produto do ecossistema · {p.preco}</p>
               </div>
-              <h3 className="font-semibold">{agente.nome}</h3>
-              <p className="mt-1 text-sm text-[#6D5F56]">{agente.desc}</p>
-              <button
-                onClick={() => {
-                  view(agente.nome)
-                  lead(agente.nome)
-                  openForm(`Agentes de IA > ${agente.nome}`)
-                }}
-                className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#1F1A17] text-white px-4 py-2 text-sm hover:opacity-90 transition"
+              <a
+                href={p.href}
+                onClick={() => track("Lead", { origem: `Produtos do Ecossistema - ${p.nome}` })}
+                className="mt-4 inline-flex items-center justify-center gap-2 rounded-2xl bg-black text-white px-4 py-2 text-sm hover:opacity-90 transition"
               >
                 Quero saber mais <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
             </div>
           ))}
         </div>
       </section>
 
+      {/* NEGÓCIOS PRONTOS */}
+      <section id="negocios" className="mt-24 py-24 bg-[#FFF8F4] rounded-3xl">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-3xl font-semibold text-center">Negócios Prontos para Começar</h2>
+          <p className="mt-3 text-center text-black/70">
+            Modelos testados e prontos para você adaptar, personalizar e começar a lucrar ainda hoje — de forma simples,
+            humana e com propósito.
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+            {[
+              {
+                title: "Bolos Caseiros Lucrativos",
+                image: "/images/plr-bolos-thumb.jpg",
+                link: "https://boloscaseiros.tetel.online?utm_source=tetel.com",
+              },
+              {
+                title: "Balas de Coco Gourmet",
+                image: "/images/plr-balas-thumb.jpg",
+                link: "https://balasdecoco.tetel.online?utm_source=tetel.com",
+              },
+              {
+                title: "Geladinhos Gourmet",
+                image: "/images/plr-geladinhos-thumb.jpg",
+                link: "https://geladinhos.tetel.online?utm_source=tetel.com",
+              },
+              {
+                title: "Iogurtes Caseiros Lucrativos",
+                image: "/images/plr-iogurtes-thumb.jpg",
+                link: "https://iogurtescaseiros.tetel.online?utm_source=tetel.com",
+              },
+            ].map((item) => (
+              <a
+                key={item.title}
+                href={item.link}
+                onClick={() => track("Lead", { origem: `PLR - ${item.title}` })}
+                className="block rounded-2xl overflow-hidden border border-black/10 bg-white hover:shadow-md transition"
+              >
+                <img
+                  src={item.image || "/placeholder.svg"}
+                  alt={item.title}
+                  className="w-full h-56 object-contain bg-white rounded-t-2xl"
+                />
+                <div className="p-5">
+                  <h3 className="font-semibold text-lg">{item.title}</h3>
+                  <button className="mt-4 bg-black text-white px-4 py-2 rounded-full text-sm font-semibold">
+                    Quero saber mais →
+                  </button>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AGENTES DE IA */}
+      <section id="agentes" className="mt-24 py-16 border-b border-black/10">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-2xl font-semibold mb-6 tracking-tight">Agentes de IA Tetel</h2>
+          <p className="text-black/60 mb-10 max-w-2xl">
+            Inteligências artificiais que ajudam empresas e empreendedores a crescer com propósito.
+          </p>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { nome: "IA SDR", desc: "Captação e qualificação automática de leads." },
+              { nome: "IA Vendas", desc: "Atendimento comercial inteligente e humanizado." },
+              { nome: "IA Suporte", desc: "Acompanhamento de clientes com empatia e agilidade." },
+            ].map((agente) => (
+              <div
+                key={agente.nome}
+                className="rounded-2xl border border-black/10 bg-white p-6 hover:shadow-md transition"
+              >
+                <div className="h-10 w-10 rounded-xl bg-[#FFE7D6] grid place-items-center mb-3">
+                  <Sparkles className="h-5 w-5" />
+                </div>
+                <h3 className="font-semibold">{agente.nome}</h3>
+                <p className="mt-1 text-sm text-black/60">{agente.desc}</p>
+                <button
+                  onClick={() => {
+                    track("Lead", { origem: `Agentes de IA > ${agente.nome}` })
+                    openForm(`Agentes de IA > ${agente.nome}`)
+                  }}
+                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-black text-white px-4 py-2 text-sm hover:opacity-90 transition"
+                >
+                  Quero saber mais <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* DESENVOLVIMENTO WEB & AUTOMAÇÕES */}
-      <section className="border-b border-[#EEDFD2] bg-[#FFF9F4]">
-        <div className="mx-auto max-w-6xl px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+      <section className="mt-24 py-16 border-b border-black/10 bg-[#FFF9F4]">
+        <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight mb-3">Desenvolvimento Web & Automações</h2>
-            <p className="text-[#6D5F56] mb-4">
+            <p className="text-black/60 mb-4">
               Soluções personalizadas criadas pela equipe TetelPontocom — websites, landing pages, automações e
               integrações para impulsionar resultados.
             </p>
             <button
               onClick={() => {
-                lead("Contato Desenvolvimento")
+                track("Lead", { origem: "Contato Desenvolvimento" })
                 openForm("Desenvolvimento Web & Automações")
               }}
-              className="inline-flex items-center gap-2 rounded-2xl bg-[#1F1A17] text-white px-5 py-3 text-sm shadow-sm hover:opacity-90 transition"
+              className="inline-flex items-center gap-2 rounded-2xl bg-black text-white px-5 py-3 text-sm shadow-sm hover:opacity-90 transition"
             >
               Solicitar proposta <Wrench className="h-4 w-4" />
             </button>
           </div>
-          <div className="rounded-3xl bg-white border border-[#EEDFD2] p-8 text-center">
-            <p className="text-[#4B423C] italic">
+          <div className="rounded-3xl bg-white border border-black/10 p-8 text-center">
+            <p className="text-black/60 italic">
               "Cada automação e site é pensado para gerar impacto real e simplificar processos."
             </p>
           </div>
@@ -435,47 +390,48 @@ export default function TetelPontocomV234() {
       </section>
 
       {/* PARCEIROS LOCAIS */}
-      <section id="parceiros" className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-2xl font-semibold mb-6 tracking-tight">Parceiros Locais</h2>
-        <p className="text-[#6D5F56] mb-10 max-w-2xl">
-          Parceiros com propósito em Alagoas — confiança que tem endereço.
-        </p>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {["Maceió", "Rio Largo", "Santa Luzia do Norte"].map((cidade) => (
-            <div key={cidade} className="rounded-2xl border border-[#EEDFD2] bg-white p-6 hover:shadow-md transition">
-              <div className="h-10 w-10 rounded-xl bg-[#FFE7D6] grid place-items-center mb-3">
-                <Users className="h-5 w-5" />
+      <section id="parceiros" className="mt-24 py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-2xl font-semibold mb-6 tracking-tight">Parceiros Locais</h2>
+          <p className="text-black/60 mb-10 max-w-2xl">
+            Parceiros com propósito em Alagoas — confiança que tem endereço.
+          </p>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {["Maceió", "Rio Largo", "Santa Luzia do Norte"].map((cidade) => (
+              <div key={cidade} className="rounded-2xl border border-black/10 bg-white p-6 hover:shadow-md transition">
+                <div className="h-10 w-10 rounded-xl bg-[#FFE7D6] grid place-items-center mb-3">
+                  <Users className="h-5 w-5" />
+                </div>
+                <h3 className="font-semibold">{cidade}</h3>
+                <p className="mt-1 text-sm text-black/60">Empresas e profissionais parceiros nesta região.</p>
+                <button
+                  onClick={() => {
+                    track("Lead", { origem: `Parceiros - ${cidade}` })
+                    openForm(`Parceiros Locais > ${cidade}`)
+                  }}
+                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-black text-white px-4 py-2 text-sm hover:opacity-90 transition"
+                >
+                  Quero conhecer <ArrowRight className="h-4 w-4" />
+                </button>
               </div>
-              <h3 className="font-semibold">{cidade}</h3>
-              <p className="mt-1 text-sm text-[#6D5F56]">Empresas e profissionais parceiros nesta região.</p>
-              <button
-                onClick={() => {
-                  view(`Parceiros - ${cidade}`)
-                  lead(`Parceiros - ${cidade}`)
-                  openForm(`Parceiros Locais > ${cidade}`)
-                }}
-                className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#1F1A17] text-white px-4 py-2 text-sm hover:opacity-90 transition"
-              >
-                Quero conhecer <ArrowRight className="h-4 w-4" />
-              </button>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* SOBRE */}
-      <section id="sobre" className="border-t border-[#EEDFD2] bg-[#FFF9F4]">
-        <div className="mx-auto max-w-6xl px-4 py-14 grid md:grid-cols-2 gap-10 items-center">
+      <section id="sobre" className="mt-24 py-16">
+        <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className="text-xl md:text-2xl font-semibold tracking-tight">Sobre a TetelPontocom</h2>
-            <p className="mt-2 text-[#4B423C]">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Sobre a TetelPontocom</h2>
+            <p className="mt-2 text-black/60">
               Não somos loja — somos curadoria afetiva. Um lugar de confiança, utilidade e pertencimento. Aqui, cada
               indicação tem um motivo e reforça o nosso compromisso com crescimento com propósito dentro do ecossistema
               Tetel.
             </p>
           </div>
-          <div className="rounded-2xl bg-white border border-[#EEDFD2] p-6">
-            <ul className="space-y-3 text-sm text-[#4B423C]">
+          <div className="rounded-2xl bg-white border border-black/10 p-6">
+            <ul className="space-y-3 text-sm text-black/60">
               <li className="flex items-start gap-3">
                 <ShieldCheck className="h-4 w-4 mt-0.5" /> Transparência em cada recomendação.
               </li>
@@ -491,15 +447,15 @@ export default function TetelPontocomV234() {
       </section>
 
       {/* CONTATO (WhatsApp) */}
-      <section id="contato" className="border-t border-[#EEDFD2] bg-[#FFF9F4]">
-        <div className="mx-auto max-w-6xl px-4 py-16 text-center">
+      <section id="contato" className="mt-24 py-16 bg-[#FFF9F4] text-center">
+        <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-2xl font-semibold mb-4">Fale com a TetelPontocom</h2>
-          <p className="text-[#6D5F56] mb-8">
+          <p className="text-black/60 mb-8">
             Tem dúvidas, parcerias ou quer participar do ecossistema? Entre em contato diretamente pelo WhatsApp.
           </p>
           <button
             onClick={() => {
-              lead("WhatsApp - Contato")
+              track("Lead", { origem: "WhatsApp - Contato" })
               openForm("Contato > Fale com a TetelPontocom")
             }}
             className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-2xl text-base font-medium shadow-sm hover:opacity-90 transition"
@@ -512,7 +468,7 @@ export default function TetelPontocomV234() {
       {/* WHATSAPP FLUTUANTE */}
       <button
         onClick={() => {
-          lead("WhatsApp Flutuante")
+          track("Lead", { origem: "WhatsApp Flutuante" })
           openForm("WhatsApp Flutuante")
         }}
         className="fixed bottom-5 right-5 z-50 bg-[#25D366]/90 hover:bg-[#25D366] text-white p-3 rounded-full shadow-lg transition"
@@ -522,8 +478,10 @@ export default function TetelPontocomV234() {
       </button>
 
       {/* FOOTER */}
-      <footer className="border-t border-[#EEDFD2] bg-[#FFF6EF] text-[#4B423C] text-sm text-center py-8">
-        © {new Date().getFullYear()} TetelPontocom — Parte do Ecossistema Tetel.
+      <footer className="mt-24 py-10 text-center text-black/60 text-sm border-t border-black/10">
+        A <strong>TetelPontocom</strong> é parte do Ecossistema Tetel — acreditamos em crescimento com propósito e
+        autenticidade.
+        <br />© 2025 TetelPontocom. Todos os direitos reservados.
       </footer>
     </main>
   )
