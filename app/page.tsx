@@ -282,22 +282,22 @@ export default function TetelPontocomV252() {
               {
                 title: "Bolos Caseiros Lucrativos",
                 image: "/images/plr-bolos-thumb.jpg",
-                link: "https://boloscaseiros.tetel.online?utm_source=tetel.com",
+                link: "https://boloscaseiros.tetel.online/?origem=tetelpontocom",
               },
               {
                 title: "Balas de Coco Gourmet",
                 image: "/images/plr-balas-thumb.jpg",
-                link: "https://balasdecoco.tetel.online?utm_source=tetel.com",
+                link: "https://balasdecoco.tetel.online/?origem=tetelpontocom",
               },
               {
                 title: "Geladinhos Gourmet",
                 image: "/images/plr-geladinhos-thumb.jpg",
-                link: "https://geladinhos.tetel.online?utm_source=tetel.com",
+                link: "https://geladinhos.tetel.online/?origem=tetelpontocom",
               },
               {
                 title: "Iogurtes Caseiros Lucrativos",
                 image: "/images/plr-iogurtes-thumb.jpg",
-                link: "https://iogurtescaseiros.tetel.online?utm_source=tetel.com",
+                link: "https://iogurtescaseiros.tetel.online/?origem=tetelpontocom",
               },
             ].map((item) => (
               <a
